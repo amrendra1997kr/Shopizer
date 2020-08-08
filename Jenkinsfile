@@ -4,11 +4,7 @@ pipeline{
     stage ('Build') {
       steps{
         echo "Building Project"
-      }
-    }
-    stage ('Archive') {
-      steps{
-        echo "Archiving Project"
+        sh 'mvnw clean install'
       }
     }
     stage ('Build Docker Image') {
