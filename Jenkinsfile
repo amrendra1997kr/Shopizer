@@ -4,7 +4,7 @@ pipeline{
     stage ('Build') {
       steps{
         echo "Building Project"
-        sh 'mvn clean install'
+        sh 'mvn clean install -DskipTests=True'
       }
     }
     stage ('Build Docker Image') {
