@@ -12,7 +12,7 @@ pipeline{
         sh 'mvn clean install -DskipTests=True'
       }
     }
-    stage{
+    stage ('Archive'){
       steps{
         echo "Archiving Project"
         script{
