@@ -15,10 +15,7 @@ pipeline{
     stage ('Build Docker Image') {
       steps{
         echo "Building Docker Image"
-        sh '''
-            cd sm-shop
-            docker build "Dockerfile" -t 7903539838/shopizer:latest
-          '''
+        sh 'docker build "Dockerfile" -t 7903539838/shopizer:latest'
       }
     }
     stage ('Push Docker Image') {
