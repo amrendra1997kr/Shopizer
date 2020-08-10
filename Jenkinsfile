@@ -1,6 +1,6 @@
 pipeline{
   environment{
-    registry = "7903539838/Shopizer"
+    registry = "7903539838/shopizer"
     registryCredential = 'Docker_Hub_Amrendra'
     dockerImage = ''
   }
