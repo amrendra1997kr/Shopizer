@@ -15,9 +15,7 @@ pipeline{
     stage ('Build Docker Image') {
       steps{
         echo "Building Docker Image"
-        script{
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
+        sh 'docker build -t "Dockerfile"  7903539838/shopizer:latest'
       }
     }
     stage ('Push Docker Image') {
