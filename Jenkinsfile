@@ -31,19 +31,11 @@ pipeline{
     stage ('Push Docker Image') {
       steps{
         echo "Pushing Docker Image"
-        script{
-          docker.withRegistry ('' , registryCredential  ) {
-            dockerImage.push()
-            dockerImage.push('latest')
-          }
-        }
       }
     }
     stage ('Deploy to Dev') {
       steps{
         echo "Deploying to Dev Environment"
-        sh "docker rm -f shopizer || true"
-        sh "docker run -d --name=shopizer -p 8082:8080 7903539838/shopizer"
       }
     }
   }
