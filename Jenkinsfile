@@ -12,14 +12,6 @@ pipeline{
         sh 'mvn clean install -DskipTests=True'
       }
     }
-    stage ('Archive'){
-      steps{
-        echo "Archiving Project"
-        script{
-          archiveArtifacts artifacts: '**/*.war', followSymlinks: false
-        }
-      }
-    }
     stage ('Build Docker Image') {
       steps{
         echo "Building Docker Image"
