@@ -22,9 +22,8 @@ pipeline{
       steps{
         echo "Pushing Docker Image"
 	script	{
-	     docker.withRegistry('',registryCredential) {
-    		dockerImage.push()
-		dockerImage.push('latest')     
+	     withDockerRegistry('',registryCredential) {
+    		sh 'docker push 7903539838/shopizer:latest'  
 	     } 
 	}      
       }
