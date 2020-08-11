@@ -21,11 +21,9 @@ pipeline{
     stage ('Push Docker Image') {
       steps{
         echo "Pushing Docker Image"
-        script {
-          docker.withRegistry( '', registryCredential ) {
-              dockerImage.push('latest')
-          }
-        }
+        withDockerRegistry([credentialsId: 'Docker_Hub_Amrendra', url: '']) {
+   			      sh 'docker push 7903539838/shopizer:latest'
+	      }
       }
     }
     stage ('Deploy to Dev') {
